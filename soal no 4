@@ -1,0 +1,27 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definisi gaya sebagai fungsi posisi
+def F(x):
+    return 2 * x**2 + 4 * x + 2  # Persamaan gaya dalam N
+
+# Posisi dari 0 hingga 30 meter
+x = np.linspace(0, 30, 500)  # 500 titik untuk nilai posisi
+
+# Menghitung gaya untuk setiap posisi
+force = F(x)
+
+# Menampilkan beberapa hasil perhitungan
+print("Posisi (x) dan Gaya (F):")
+for xi, Fi in zip(x[:10], force[:10]):  # Menampilkan 10 data pertama
+    print(f"x = {xi:.2f} m, F(x) = {Fi:.2f} N")
+
+# Visualisasi gaya terhadap posisi
+plt.figure(figsize=(10, 6))
+plt.plot(x, force, label=r"$F(x) = 2x^2 + 4x + 2$", color="blue")
+plt.title("Grafik Gaya terhadap Posisi")
+plt.xlabel("Posisi (meter)")
+plt.ylabel("Gaya (Newton)")
+plt.grid(True)
+plt.legend()
+plt.show()
